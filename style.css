@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Galada&family=Roboto&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+    border-spacing: 0;
+    
+}
+
+a , a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: 'DM Sans', sans-serif;
+    /* background-image: url('/img/3.jpg');
+    background-size: cover; */
+    background: -webkit-linear-gradient(left, #75bcff, #2464ef);
+}
+
+.home  {
+    background-image: url('/img/3.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    height: 550px;
+}
+
+.kanan-navbar .link, .kanan-navbar .logout {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-decoration: none;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+.kanan-navbar .link:hover {
+    background-color: khaki;
+}
+
+.kanan-navbar .logout {
+    margin-left: 15px;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.863);
+    /* color: red;
+    border: 1.5px solid red; */
+}
+
+.kanan-navbar .logout:hover {
+    color: white;
+    background-color: rgb(250, 108, 108); 
+}
+
+p{
+    margin: 0em;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.mykanban-title{
+    font-family: 'Galada', cursive;
+    /* background-color: khaki; */
+    align-items: center;
+    font-size: 24px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 0 25px 0 25px;
+}
+
+.landing-page{
+    margin-left: 95px;
+    margin-top: 80px;
+}
+
+.lp-title{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+.lp-paragraph{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    line-height: 25px;
+    font-size: 18px;
+}
+
+.button {
+    /* border: 1.5px solid khaki; */
+    /* background-color: rgb(245, 238, 178); */
+    background-color: tomato;
+    color: white;
+
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: normal;
+}
+.button:hover{
+    background-color: khaki;
+
+    
+}
+
+.login-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    height: 100%;
+    width: 900px;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .item {
+    width: 220px;
+    background-color: rgb(2, 106,167);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+.container .item .item-title {
+    font-size: 14px;
+    
+}
+
+.container .item .item-button {
+    font-size: 12px;
+    border: 0;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    background-color: unset;
+}
+
+.container .item .item-list  {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: rgb(73,148,192);
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
+/* Login */
+
+.login{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 300px; 
+    margin:30px ;
+    border-radius: 20px;
+}
+
+
+/* ABout Form */
+
+
+
+.judul-form{
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-size: 18px; font-weight: bold;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+.input-form{
+    border-radius: 10px;
+    border: 0;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 10px;
+    width: 300px;
+}
+
+.input-form:focus{
+    border: tomato 1px solid;
+}
+
+
+
+.button-form{
+    /* #75bcff, #2464ef */
+    border: 0; font-size: 12px; padding: 5px 10px;
+    background-color: #2464ef;
+    color: white;
+    border-radius: 20px;
+}
+
+.button-form:hover{
+    background-color: #75bcff;
+}
+
+.form-group{
+    border: 0;
+}
+
+.button-forget-pass{
+    font-size: 10px; text-align: right; color: rgba(0, 0, 0, 0.479);
+}
+
+.button-forget-pass:hover{
+    cursor: pointer;
+}
+
+/* Paragraf */
+
+.paragraf{
+    font-weight:normal;
+    color: rgba(0, 0, 0, 0.733); 
+    font-family:Arial, Helvetica, sans-serif; 
+    font-size: 12px; 
+    line-height: 15px; 
+    text-align: center;
+}
+
+.login .kiri{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height:300px ; 
+    width: 400px; 
+    background-color: rgb(240, 240, 240);
+}
+
