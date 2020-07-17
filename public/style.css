@@ -1,0 +1,188 @@
+body, html {
+    height: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+.bg {
+    background-image: url("./asset/img1.jpg");
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Form */
+.register-login-box {
+    display: inline-block;
+    background-color: rgb(74, 63, 53, 0.8);
+    text-align: center;
+    width: 50%;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    text-align: left;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: white;
+}
+
+.buttons {
+    display: inline-flex;
+    padding-top: 10px;
+align-content: center;}
+
+.submit-button {
+    margin-right: 5px;
+}
+
+/* Kanban */
+#kanban-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.title {
+    padding: 5px 8px;
+    border-radius: 3%;
+    margin: 15px 10px;
+    width: 250px;
+    height: 50px;
+    color: #2f2519;
+    font-weight: bold;
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 228px;
+    text-align: center;
+}
+
+.container-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f0ece3;
+    padding: 5px 8px;
+    border-radius: 3%;
+    margin: 15px 10px;
+    width: 250px;
+    color: #2f2519;
+    font-weight: bold;
+    text-align: left;
+}
+
+.btn-secondary {
+    background-color: #4a3f35;
+    outline-color: #4a3f35;
+}
+
+.container-item.btn-light {
+    margin-top: 3px;
+    width: 230px;
+}
+
+.card {
+    width: 230px !important;
+    background-color: #4a3f35 !important;
+    color: white;
+    margin: 5px;
+    border: 0;
+}
+
+.card a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Navigation Style */
+#navigation-guest-section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin: 0; 
+    background: #4a3f35;
+    align-items: center;
+    height: 49px;
+}
+
+.navigation a {
+    text-decoration: none;
+    padding: 15px;
+    color: white;
+}
+  
+.navigation a:hover {
+    background: #2f2519;
+}
+
+.navigation-left {
+    display: flex;
+    align-items: center;
+}
+
+.navigation-left a {
+    text-decoration: none;
+    padding: 12.5px;
+    color: white;
+}
+
+.navigation-left p {
+    margin: 0;
+    vertical-align: middle;
+    color: white;
+}
+
+.navigation-mid {
+    display: flex;
+}
+
+.navigation-right {
+    display: inline-flex;
+    align-items: center;
+}
+
+#about-section-page {
+    width: 50%;
+    margin-top: 100px;
+}
+
+.jumbotron {
+    background-color: #f0ece3;
+}
+
+.jumbotron img {
+    width: 100px;
+    height: 100px;
+    background-color: #f0ece3;
+}
+
+
+/* Modal */
+
+.modal-footer {
+    display: inline-block;
+}
+
+#edit-modal {
+    color: black;
+}
+
+.modal-content.modal-footer {
+    display: inline-block;
+}
