@@ -24,10 +24,6 @@
                     
                   </form>
 
-
-
-                  <!-- <div class="button-form" @click="onSignIn" style="cursor:pointer">Login Via google</div> -->
-
             </div>
             <div class="kanan" style=" height:300px ; width:500px; display: flex; flex-direction: column; align-items: center; padding-top: 40px; padding-left:20px; padding-right:20px ;background-image: url('/img/1.jpg'); background-size: cover;">
                 <h3 class="judul-form">Selamat Datang</h3>
@@ -74,7 +70,7 @@ export default {
     setToken(){
       axios({
         method: 'POST',
-        url: 'http://localhost:3000/users/login',
+        url: 'https://mykanban-ichlasul.herokuapp.com/users/login',
         data: {
           email: this.email,
           password: this.password
@@ -94,7 +90,7 @@ export default {
 
         axios({
           method: 'POST',
-          url: 'http://localhost:3000/users/login/google',
+          url: 'https://mykanban-ichlasul.herokuapp.com/users/login/google',
           headers: {
             id_token: googleUser.getAuthResponse().id_token
           }

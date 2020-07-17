@@ -50,17 +50,13 @@ export default {
         deleteformupdate(){
             axios({
                 method: 'DELETE',
-                url: `http://localhost:3000/tasks/${this.dataid}`,
+                url: `https://mykanban-ichlasul.herokuapp.com/tasks/${this.dataid}`,
                 headers: {
                     token: localStorage.getItem('token')
                 }
             })
                 .then(({data}) => {
-                    console.log(data.message)
                     this.$emit("getTasks")
-                    console.log(` Deleted http://localhost:3000/tasks/${this.dataid}`)
-
-
                 })
                 .catch(console.log)
             
@@ -71,7 +67,7 @@ export default {
         updateform(){
             axios({
                 method: 'PUT',
-                url: `http://localhost:3000/tasks/${this.dataid}`,
+                url: `https://mykanban-ichlasul.herokuapp.com/tasks/${this.dataid}`,
                 headers: {
                     token: localStorage.getItem('token')
                 },
@@ -81,7 +77,6 @@ export default {
             })
                 .then(({data}) => {
                     this.$emit("getTasks")
-                    console.log(`Updated http://localhost:3000/tasks/${this.dataid}`)
                 })
                 .catch(console.log)
             
@@ -101,12 +96,9 @@ export default {
                     break
             }
 
-            // console.log(newCategory)
-            // console.log(this.task.id)
-
             axios({
                 method: 'PUT',
-                url: `http://localhost:3000/tasks/${this.dataid}`,
+                url: `https://mykanban-ichlasul.herokuapp.com/tasks/${this.dataid}`,
                 headers: {
                     token: localStorage.getItem('token')
                 },
@@ -140,7 +132,7 @@ export default {
 
             axios({
                 method: 'PUT',
-                url: `http://localhost:3000/tasks/${this.dataid}`,
+                url: `https://mykanban-ichlasul.herokuapp.com/tasks/${this.dataid}`,
                 headers: {
                     token: localStorage.getItem('token')
                 },
@@ -150,7 +142,6 @@ export default {
 
             })
                 .then(({data}) => {
-                    console.log(data)
                     this.$emit('getTasks')
                 })
                 .catch(console.log)
