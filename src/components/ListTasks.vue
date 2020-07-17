@@ -3,30 +3,22 @@
         <div class="mycard">
             <div class="header">
                 <h3 class="title">{{ category}}</h3>
-                <p class="edit-title"><i class="fa fa-bars fa-1x" style="color: white;"></i></p>
+                <p class="edit-title"><i class="fa fa-bars fa-1x" style="color: white; cursor:not-allowed"></i></p>
             </div>
             
-            <CardTask v-for="task in categoryTasks " :key="task.id" :task="task" ></CardTask>       
-            <div class="task" v-if="addTask" >
-                <input style="padding:15px; border:0;" type="text" v-model="name" class="task-title"  placeholder="Enter name task here!">
+            <CardTask v-on:getTasks="getTasks" v-for="task in categoryTasks " :key="task.id" :task="task" ></CardTask>       
+            <div class="task" v-if="addTask"  >
+                <input style="padding:15px; border:0; cursor:text;" type="text" v-model="name" class="task-title"  placeholder="Enter name task here!">
             </div>
 
             <div class="row text-center" v-if="addTask">
-                <div class="col-sm-6">
-                    <p @click="changeAddTask" class="button-add">Add</p>
+                <div class="col-sm-6" >
+                    <p @click="addTaskToServer" class="button-add" >Add</p>
                 </div>
                 <div class="col-sm-6">
-                    <p @click="changeAddTask" class="button-add"><i class="fa fa-trash fa-1x" style="color: white; margin-right: 10px;"></i>Delete</p>
+                    <p @click="changeAddTask" class="button-add"><i class="fa fa-close" style="color: white; margin-right: 10px;"></i>Cancel</p>
                 </div>
             </div>
-
-
-            <!-- <div class="button-add" v-if="">
-                <p @click="changeAddTask" >Add</p>
-            </div>
-            <div class="button-add" v-if="addTask">
-                <p @click="changeAddTask" >Delete</p>
-            </div> -->
             <div class="button-add" v-if="!addTask" @click="changeAddTask">
                 <p><i class="fa fa-plus fa-1x" style="color: white; margin:5px 10px;"></i></p>
                 <p  >Add another task</p>
@@ -38,10 +30,11 @@
 
 <script>
 import CardTask from './CardTask'
+import axios from 'axios'
 
 
 export default {
-    name: "List Tasks",
+    name: "ListTasks",
     data(){
         return {
             addTask: false,
@@ -51,7 +44,31 @@ export default {
     methods:{
         changeAddTask(){
             this.addTask = !this.addTask
+        },
+        addTaskToServer(){
+            axios({
+                method:'POST',
+                url: 'http://localhost:3000/tasks/',
+                headers: {
+                    token: localStorage.getItem('token')
+                },
+                data:{
+                    name: this.name,
+                    category: this.category
+                }
+            })
+                .then(({data})=> {
+                    console.log(data)
+                    this.$emit("getTasks")
+                    this.changeAddTask()
+                    this.name = ''
+                })
+                .catch(console.log)
+        },
+        getTasks(){
+            this.$emit("getTasks")
         }
+
     },
     props: {
         tasks: Array,
