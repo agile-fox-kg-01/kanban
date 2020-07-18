@@ -2,9 +2,9 @@
   <div>
     <!-- content -->
     <NavBar @hasLogout="hasLogout"></NavBar>
+    <button id="btn-add-task" v-b-modal.modal-prevent-closing>add task</button>
     <div class="container-fluid">
       <!-- back-log -->
-      <button id="btn-add-task" v-b-modal.modal-prevent-closing>add task</button>
       <KanbanCategory
         v-for="(category,id) in categories"
         :key="id"
@@ -45,6 +45,7 @@
 import axios from "axios";
 import NavBar from "./NavBar";
 import KanbanCategory from "./KanbanCategory";
+import Swal from "sweetalert2";
 
 export default {
   name: "KanbanBoard",
@@ -95,11 +96,23 @@ export default {
         }
       })
         .then(response => {
-          console.log("berhasil create", response.data.newData);
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "A new Back-log task added",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          console.log("success created", response.data.newData);
           this.afterCreate();
         })
-        .catch(response => {
-          console.log(response);
+        .catch(err => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${err.response.data.message}`
+          });
+          console.log(err.response);
         });
     },
 

@@ -27,11 +27,20 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
+
 export default {
   name: "NavBar",
   methods: {
     logout() {
       localStorage.removeItem("access_token");
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "See you again!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.$emit("hasLogout");
     }
   }

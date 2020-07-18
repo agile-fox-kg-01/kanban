@@ -40,7 +40,7 @@
         </b-form-group>
 
         <b-form-group label="Email" label-for="email-register" invalid-feedback="Email is required">
-          <b-form-input id="email-register" v-model="emailRegister" required></b-form-input>
+          <b-form-input id="email-register" type="email" v-model="emailRegister" required></b-form-input>
         </b-form-group>
 
         <b-form-group
@@ -48,7 +48,7 @@
           label-for="password-register"
           invalid-feedback="Password is required"
         >
-          <b-form-input id="password-register" v-model="passwordRegister" required></b-form-input>
+          <b-form-input id="password-register" type="password" v-model="passwordRegister" required></b-form-input>
         </b-form-group>
       </form>
     </b-modal>
@@ -58,6 +58,8 @@
 <script>
 import GoogleSignInButton from "vue-google-signin-button-directive";
 import axios from "axios";
+import Swal from "sweetalert2";
+
 export default {
   name: "AuthForm",
   data() {
@@ -87,12 +89,16 @@ export default {
         }
       })
         .then(response => {
-          console.log(response);
+          console.log(response.data);
           localStorage.setItem("access_token", response.access_token);
         })
         .catch(err => {
-          console.log(err.response);
-          localStorage.setItem("access_token", response.access_token);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${err.response.data}`
+          });
+          console.log(err.response.data);
         });
     },
     OnGoogleAuthFail(error) {
@@ -109,13 +115,18 @@ export default {
         }
       })
         .then(response => {
-          console.log(response);
+          console.log(response.data);
           const access_token = response.data.access_token;
           localStorage.setItem("access_token", access_token);
           this.$emit("hasLogin");
         })
-        .catch(error => {
-          console.log(error.response.data);
+        .catch(err => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${err.response.data.message}`
+          });
+          console.log(err.response.data);
         });
     },
 
@@ -130,10 +141,22 @@ export default {
         }
       })
         .then(response => {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "you can login now",
+            showConfirmButton: false,
+            timer: 1600
+          });
           console.log("berhasil register");
         })
         .catch(err => {
-          console.log(err.response);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${err.response.data.message}`
+          });
+          console.log(err.response.data);
         });
     },
 
