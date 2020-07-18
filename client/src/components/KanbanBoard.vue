@@ -4,7 +4,6 @@
     <NavBar @hasLogout="hasLogout"></NavBar>
     <button id="btn-add-task" v-b-modal.modal-prevent-closing>add task</button>
     <div class="container-fluid">
-      <!-- back-log -->
       <KanbanCategory
         v-for="(category,id) in categories"
         :key="id"
@@ -15,7 +14,6 @@
         @fetchData="fetchData"
       ></KanbanCategory>
     </div>
-
     <!-- add task modal-->
     <b-modal
       id="modal-prevent-closing"
@@ -127,13 +125,15 @@ export default {
 </script>
 
 <style scoped>
-.container-fluid {
-  display: flex;
-  justify-content: center;
-}
 form {
   font-family: "Merienda One", cursive;
 }
+.container-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 #btn-add-task {
   display: inline-table;
   border-radius: 6px;
@@ -143,7 +143,7 @@ form {
   font-family: "Merienda One", cursive;
   width: 100px;
   height: 30px;
-  margin-bottom: 6px;
+  margin-left: 40px;
   outline-color: aliceblue;
   border-color: white;
 }

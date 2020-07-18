@@ -80,7 +80,6 @@ export default {
   },
   methods: {
     OnGoogleAuthSuccess(idToken) {
-      console.log(idToken);
       axios({
         url: `http://localhost:3000/login/google`,
         method: `POST`,
@@ -89,8 +88,8 @@ export default {
         }
       })
         .then(response => {
-          console.log(response.data);
-          localStorage.setItem("access_token", response.access_token);
+          localStorage.setItem("access_token", response.data.access_token);
+          this.$emit("hasLogin");
         })
         .catch(err => {
           Swal.fire({
@@ -98,11 +97,12 @@ export default {
             title: "Oops...",
             text: `${err.response.data}`
           });
-          console.log(err.response.data);
+
+          // console.log(err.response.data);
         });
     },
     OnGoogleAuthFail(error) {
-      console.log(error);
+      // console.log(error);
     },
 
     login() {

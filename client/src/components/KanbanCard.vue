@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div v-if class="card">
     <h5 class="card-title">{{task.title}}</h5>
     <p class="card-text">{{task.description}}</p>
     <div class="card-footer">
@@ -68,6 +68,11 @@ export default {
           this.$emit("fetchData");
         })
         .catch(err => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops... Sorry!",
+            text: `${err.response.data.message}`
+          });
           console.log("this is error:", err);
         });
     },
@@ -92,13 +97,18 @@ export default {
             data: {}
           })
             .then(response => {
-              console.log("success deleted");
+              // console.log("success deleted");
               this.$emit("fetchData");
+              Swal.fire("Deleted!", "Your task has been deleted.");
             })
             .catch(err => {
+              Swal.fire({
+                icon: "error",
+                title: "Oops... Sorry!",
+                text: `${err.response.data.message}`
+              });
               console.log(err);
             });
-          Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
     },
@@ -110,7 +120,7 @@ export default {
         inputAttributes: {
           "aria-label": "edit description here"
         },
-        showCancelButton: true
+        showCancelButton: false
       }).then(text => {
         axios({
           url: `http://localhost:3000/tasks/${task.id}`,
@@ -125,7 +135,8 @@ export default {
           }
         })
           .then(response => {
-            console.log("success editing", response.data);
+            this.$emit("fetchData");
+            // console.log("success editing", response.data);
             Swal.fire({
               position: "top-center",
               icon: "success",
@@ -133,10 +144,15 @@ export default {
               showConfirmButton: false,
               timer: 1500
             });
-            this.$emit("fetchData");
           })
           .catch(err => {
-            console.log("this is error");
+            Swal.fire({
+              icon: "error",
+              title: "Oops... Sorry!",
+              text: `${err.response.data.message}`
+            });
+
+            // console.log("this is error", err.response);
           });
       });
     },
