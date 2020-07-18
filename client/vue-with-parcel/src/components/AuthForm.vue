@@ -13,7 +13,9 @@
         <input type="submit" value="login" id="btn-input" />
       </form>
       <div id="btn-container">
-        <div class="g-signin2 login-google" data-onsuccess="onSignIn"></div>
+        <button v-google-signin-button="clientId" class="google-signin-button">
+          <img src="../assets/img/google.png" class="google-icon" />
+        </button>
         <h2 id="register" v-b-modal.modal-prevent-closing>Register?</h2>
       </div>
       <p class="mt-5 mb-3 text-muted">© 2020-2021</p>
@@ -54,10 +56,14 @@
 </template>
 
 <script>
+import GoogleSignInButton from "vue-google-signin-button-directive";
+import axios from "axios";
 export default {
   name: "AuthForm",
   data() {
     return {
+      clientId:
+        "1055302973797-hmk5egb2bet4an28hekh0d2nt0hdk84p.apps.googleusercontent.com",
       name: "",
       submittedNames: [],
       emailLogin: "",
@@ -67,7 +73,32 @@ export default {
       fullname: ""
     };
   },
+  directives: {
+    GoogleSignInButton
+  },
   methods: {
+    OnGoogleAuthSuccess(idToken) {
+      console.log(idToken);
+      axios({
+        url: `http://localhost:3000/login/google`,
+        method: `POST`,
+        headers: {
+          google_token: idToken
+        }
+      })
+        .then(response => {
+          console.log(response);
+          localStorage.setItem("access_token", response.access_token);
+        })
+        .catch(err => {
+          console.log(err.response);
+          localStorage.setItem("access_token", response.access_token);
+        });
+    },
+    OnGoogleAuthFail(error) {
+      console.log(error);
+    },
+
     login() {
       axios({
         url: `http://localhost:3000/login`,
@@ -78,39 +109,14 @@ export default {
         }
       })
         .then(response => {
+          console.log(response);
           const access_token = response.data.access_token;
           localStorage.setItem("access_token", access_token);
           this.$emit("hasLogin");
         })
-        .catch(response => {
-          console.log(response);
+        .catch(error => {
+          console.log(error.response.data);
         });
-    },
-
-    onSignIn(googleUser) {
-      const google_token = googleUser.getAuthResponse().id_token;
-      console.log(google_token);
-      $.axios({
-        url: `http://localhost:3000/login/google`,
-        method: `POST`,
-        headers: {
-          google_token
-        }
-      })
-        .then(response => {
-          logInDisplay();
-          console.log(response.token);
-          localStorage.setItem("access_token", response.token);
-        })
-        .catch(response => {
-          console.log(response);
-          localStorage.setItem("access_token", response.token);
-        });
-    },
-
-    googleSignOut() {
-      const auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut();
     },
 
     register() {
@@ -126,8 +132,8 @@ export default {
         .then(response => {
           console.log("berhasil register");
         })
-        .catch(response => {
-          console.log(response);
+        .catch(err => {
+          console.log(err.response);
         });
     },
 
@@ -160,7 +166,7 @@ export default {
   align-items: center;
   border-radius: 1rem;
   margin: auto;
-  margin-top: 130px;
+  margin-top: 100px;
 }
 
 .login-container:hover {
@@ -169,7 +175,7 @@ export default {
 
 #btn-container {
   display: flex;
-  margin: 20px;
+  margin: 25px;
 }
 
 #btn-input {
@@ -199,11 +205,13 @@ export default {
 }
 
 p {
-  margin-top: 30px;
+  margin-top: 20px;
   font-family: "Merienda One", cursive;
 }
 h2 {
   font-family: "Merienda One", cursive;
+  margin: auto;
+  outline: none;
 }
 input {
   outline: none;
@@ -232,5 +240,22 @@ input {
   background-color: white;
   color: #916dd5;
   border-style: inset;
+}
+
+.google-signin-button {
+  font-family: "Merienda One", cursive;
+  color: blue;
+  font-size: 17px;
+  background-color: #ffe2ff;
+  margin-right: 20px;
+  outline: none;
+  /* border-radius: 30px; */
+  /* padding: 10px 20px 25px 20px; */
+  box-shadow: 0 4px 8px 0 rgba(202, 24, 178, 0.2),
+    0 6px 20px 0 rgba(221, 7, 203, 0.19);
+}
+
+.google-icon {
+  width: 40px;
 }
 </style>
