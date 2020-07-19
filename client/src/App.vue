@@ -47,7 +47,7 @@ export default {
 
     fetchData() {
       axios({
-        url: `http://localhost:3000/tasks`,
+        url: `https://kanban-server-app.herokuapp.com/tasks`,
         method: "GET",
         headers: {
           access_token: localStorage.getItem("access_token")
@@ -55,10 +55,10 @@ export default {
       })
         .then(response => {
           this.tasks = response.data.tasks;
-          console.log(response.data.tasks);
+          // console.log(response.data.tasks);
         })
         .catch(err => {
-          console.log(err.response);
+          // console.log(err.response);
         });
     }
   }

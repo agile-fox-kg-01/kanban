@@ -54,7 +54,7 @@ export default {
   methods: {
     moveTaskCategory(category) {
       axios({
-        url: `http://localhost:3000/tasks/${this.task.id}`,
+        url: `https://kanban-server-app.herokuapp.com/tasks/${this.task.id}`,
         method: "PATCH",
         headers: {
           access_token: this.access_token
@@ -89,7 +89,7 @@ export default {
       }).then(result => {
         if (result.value) {
           axios({
-            url: `http://localhost:3000/tasks/${this.task.id}`,
+            url: `https://kanban-server-app.herokuapp.com/${this.task.id}`,
             method: "DELETE",
             headers: {
               access_token: this.access_token
@@ -123,7 +123,7 @@ export default {
         showCancelButton: false
       }).then(text => {
         axios({
-          url: `http://localhost:3000/tasks/${task.id}`,
+          url: `https://kanban-server-app.herokuapp.com/tasks/${task.id}`,
           method: "PUT",
           headers: {
             access_token: this.access_token

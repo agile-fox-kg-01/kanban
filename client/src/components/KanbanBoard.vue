@@ -82,7 +82,7 @@ export default {
 
     createNewTask() {
       axios({
-        url: `http://localhost:3000/tasks`,
+        url: `https://kanban-server-app.herokuapp.com/tasks`,
         method: "post",
         headers: {
           access_token: localStorage.getItem("access_token")

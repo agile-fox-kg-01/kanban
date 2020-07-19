@@ -81,7 +81,7 @@ export default {
   methods: {
     OnGoogleAuthSuccess(idToken) {
       axios({
-        url: `http://localhost:3000/login/google`,
+        url: `https://kanban-server-app.herokuapp.com//login/google`,
         method: `POST`,
         headers: {
           google_token: idToken
@@ -107,7 +107,7 @@ export default {
 
     login() {
       axios({
-        url: `http://localhost:3000/login`,
+        url: `https://kanban-server-app.herokuapp.com/login`,
         method: "POST",
         data: {
           email: this.emailLogin,
@@ -132,7 +132,7 @@ export default {
 
     register() {
       axios({
-        url: `http://localhost:3000/register`,
+        url: `https://kanban-server-app.herokuapp.com/register`,
         method: "POST",
         data: {
           fullname: this.fullname,
