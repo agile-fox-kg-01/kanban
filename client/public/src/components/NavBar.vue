@@ -2,7 +2,7 @@
   <!-- navbar -->
   <div class="custom-navbar">
     <div class="navbar-mid">
-      <img id="brand" src="../../src/assets/img/kanbanWhite.png" alt />
+      <img id="brand" src="../../assets/img/kanbanWhite.png" alt />
     </div>
     <div class="navbar-right">
       <div class="dropdown">

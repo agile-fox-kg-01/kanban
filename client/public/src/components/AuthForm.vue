@@ -3,7 +3,7 @@
     <!-- login -->
     <div class="login-container">
       <div>
-        <img id="logo" src="../assets/img/kanban.png" alt />
+        <img id="logo" src="../../assets/img/kanban.png" alt />
       </div>
       <form id="login-form" @submit.prevent="login">
         <label for="email-login"></label>
@@ -14,7 +14,7 @@
       </form>
       <div id="btn-container">
         <button v-google-signin-button="clientId" class="google-signin-button">
-          <img src="../assets/img/google.png" class="google-icon" />
+          <img src="../../assets/img/google.png" class="google-icon" />
         </button>
         <h2 id="register" v-b-modal.modal-prevent-closing>Register?</h2>
       </div>
@@ -81,7 +81,7 @@ export default {
   methods: {
     OnGoogleAuthSuccess(idToken) {
       axios({
-        url: `https://kanban-server-app.herokuapp.com//login/google`,
+        url: `https://kanban-server-app.herokuapp.com/login/google`,
         method: `POST`,
         headers: {
           google_token: idToken

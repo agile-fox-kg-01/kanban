@@ -67,5 +67,3 @@ export default {
 
 <style scoped>
 </style>
-
-// :todos="todos"

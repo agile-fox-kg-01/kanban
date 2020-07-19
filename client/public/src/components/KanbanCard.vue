@@ -89,7 +89,7 @@ export default {
       }).then(result => {
         if (result.value) {
           axios({
-            url: `https://kanban-server-app.herokuapp.com/${this.task.id}`,
+            url: `https://kanban-server-app.herokuapp.com/tasks/${this.task.id}`,
             method: "DELETE",
             headers: {
               access_token: this.access_token
@@ -107,7 +107,7 @@ export default {
                 title: "Oops... Sorry!",
                 text: `${err.response.data.message}`
               });
-              console.log(err);
+              // console.log(err);
             });
         }
       });
@@ -117,6 +117,7 @@ export default {
       const { value: text } = Swal.fire({
         input: "textarea",
         inputPlaceholder: "Edit description here...",
+        inputValue: task.description,
         inputAttributes: {
           "aria-label": "edit description here"
         },
