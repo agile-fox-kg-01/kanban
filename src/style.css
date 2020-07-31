@@ -1,6 +1,15 @@
+html,body {
+    margin:0px; 
+    height:100%;
+}
+
 body {
     background-image: url("img/theme.png");
     background-color: rgb(245, 238, 238);
+}
+
+.appnew {
+    height:100%;
 }
 
 /* dashboard */
@@ -14,6 +23,7 @@ body {
 
 @media (min-width: 100px) {
     .login-page {
+        height:100%;
         padding: 120px 50px;
         background-image: url("img/theme.png");
         background-color: black;
@@ -23,6 +33,7 @@ body {
 
 @media (min-width: 992px) {
     .login-page {
+        height:100%;
         padding: 124px 100px;
         background-image: url("img/theme.png");
         background-color: black;
@@ -42,6 +53,7 @@ body {
 
 @media (min-width: 100px) {
     .register-page {
+        height:100%;
         padding: 120px 50px;
         background-image: url("img/theme.png");
         background-color: rgba(247, 247, 119, 0.829);
@@ -51,6 +63,7 @@ body {
 
 @media (min-width: 992px) {
     .register-page {
+        height:100%;
         padding: 124px 100px;
         background-image: url("img/theme.png");
         background-color: rgba(247, 247, 119, 0.829);

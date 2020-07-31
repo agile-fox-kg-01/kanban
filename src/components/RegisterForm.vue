@@ -21,7 +21,7 @@
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a v-on:click="loginBtn"><span class="btn btn-warning">Login Page</span></a>
+        <a v-on:click="loginBtn"><span class="btn btn-danger">Login Page</span></a>
       </form>
     </div>
   </div>

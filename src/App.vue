@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="appnew">
         <LoginForm v-if="isPage == 'login'" v-on:toDashboard="toDashboard" v-on:toRegisterForm="toRegisterForm" v-on:toError="toError"></LoginForm>
         <RegisterForm v-else-if="isPage == 'register'" v-on:toDashboard="toDashboard" v-on:toLoginForm="toLoginForm" v-on:toError="toError"></RegisterForm>
         <Error v-else-if="isPage == 'error'" v-on:toDashboard="toDashboard"></Error>
