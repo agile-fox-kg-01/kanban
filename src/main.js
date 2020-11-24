@@ -1,17 +1,16 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 
 // fill your google outh client id
 import GAuth from 'vue-google-oauth2'
 const gauthOption = {
-  clientId: '',
+  clientId: '941386381500-uu5oq5fla8cpoar3qgf27c379jjlht7g.apps.googleusercontent.com',
   scope: 'profile email',
   prompt: 'select_account'
 }
 Vue.use(GAuth, gauthOption)
 
-Vue.config.productionTip = false
-
 new Vue({
-  render: h => h(App)
-}).$mount('#app')
+  render: h => h(App),
+}).$mount('#app');
+
