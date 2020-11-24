@@ -2,4 +2,4 @@
 
   Deploy Here:
 
-[Kanban-Client](https://kanban-aarsandi.web.app/)
+[Kanban-Client](https://kanban-aarsandi.firebaseapp.com)
