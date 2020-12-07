@@ -38,10 +38,15 @@ a, a:hover, a:focus {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 992px) {
+    .about-component {
+        display: none;
+    }
+
     #sidebar {
         margin-left: -250px;
     }
+    
     #content {
         width: 100%;
     }
@@ -62,6 +67,12 @@ a, a:hover, a:focus {
 .content-header {
     background: rgba(0, 0, 0, 0.774);
     color: #fff;
+}
+
+@media (min-width: 992px) {
+    .content-header button {
+        display: none;
+    }
 }
 
 .content-header h1 {
@@ -186,12 +197,6 @@ a, a:hover, a:focus {
 
 /* ************ modal ************** */
 
-.modal-content {
-    background-color: black;
-    color: white;
-    font-weight: bolder;
-}
-
 .addtask-header {
     display: flex;
     flex-shrink: 0;
@@ -238,6 +243,37 @@ a, a:hover, a:focus {
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
+
+#sidebartogle {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.774);
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebartogle .sidebar-header {
+    padding: 9px;
+    background: rgba(0, 0, 0, 0.774);
+    color: #fff;
+}
+
+#sidebartogle ul.components {
+    padding: 0 0;
+}
+
+#sidebartogle ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebartogle ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
 
 #sidebar {
     width: 14%;

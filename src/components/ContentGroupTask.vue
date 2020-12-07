@@ -2,7 +2,7 @@
   <div id="content">
     <div class="row justify-content-center wrapper">
       <div class="col-12 content-header">
-        <h1>group {{this.dataGroup.name}}</h1>
+        <b-button v-b-toggle.sidebar-1 class="mb-3 mx-3"><i class="fa fa-bars"></i></b-button><h1>{{this.dataGroup.name}}</h1>
         <div class="header-right-btn" v-if="dataGroup.adminId === userData.id">
           <a v-on:click="deleteGroup()">delete grup</a>
         </div>
@@ -186,8 +186,11 @@
     >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="addtask-header px-5 py-2">
-            <h2>Edit Task</h2>
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <form @submit.prevent="editTaskForm(selectedTask.id)">
             <div class="modal-body">
@@ -229,8 +232,11 @@
     >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="addtask-header px-5 py-2">
-            <h2>Add new Task</h2>
+          <div class="modal-header">
+            <h5 class="modal-title">Add New Task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <form @submit.prevent="addTaskForm">
             <div class="modal-body">

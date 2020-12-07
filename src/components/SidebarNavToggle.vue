@@ -1,9 +1,6 @@
 <template>
 <div class="sidebarnav">
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>kanban</h3>
-        </div>
+    <nav id="sidebartogle">
         <ul class="list-unstyled components">
             <li>
                 <a v-on:click="myTaskBtn()">My Task</a>

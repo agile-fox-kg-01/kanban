@@ -2,7 +2,7 @@
     <div id="content">
         <div class="row justify-content-center wrapper">
             <div class="col-12 content-header">
-                <h1>mytask page</h1>
+                <b-button v-b-toggle.sidebar-1 class="mb-3 mx-3"><i class="fa fa-bars"></i></b-button><h1>mytask page</h1>
             </div>
             <div class="col-sm-card col-md-card col-lg-card task-list">
                 <div class="backlog-header">
@@ -99,25 +99,28 @@
         <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="addtask-header px-5 py-2">
-                    <h2>Edit Task</h2>
-                </div>
-                <form @submit.prevent="editTaskForm(selectedTask.id)">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="task-add-title">Title</label>
-                            <input type="text" class="form-control" id="task-add-title" v-model="selectedTask.title">
-                        </div>
-                        <div class="form-group">
-                            <label for="task-add-desc">content</label>
-                            <textarea class="form-control" id="task-add-desc" rows="3" v-model="selectedTask.content"></textarea>
-                        </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Task</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="addtask-footer px-5 py-2">
-                        <button type="submit" class="btn btn-warning font-weight-bold">Save changes</button>
+                    <form @submit.prevent="editTaskForm(selectedTask.id)">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="task-add-title">Title</label>
+                                <input type="text" class="form-control" id="task-add-title" v-model="selectedTask.title">
+                            </div>
+                            <div class="form-group">
+                                <label for="task-add-desc">content</label>
+                                <textarea class="form-control" id="task-add-desc" rows="3" v-model="selectedTask.content"></textarea>
+                            </div>
+                        </div>
+                        <div class="addtask-footer px-5 py-2">
+                            <button type="submit" class="btn btn-warning font-weight-bold">Save changes</button>
+                        </div>
+                    </form>
                     </div>
-                </form>
-                </div>
             </div>
         </div>
         
@@ -125,24 +128,27 @@
         <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="addtask-header px-5 py-2">
-                    <h2>Add new Task</h2>
-                </div>
-                <form @submit.prevent="addTaskForm">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="task-add-title">Title</label>
-                            <input type="text" class="form-control" id="task-add-title" v-model="addTaskData.title">
-                        </div>
-                        <div class="form-group">
-                            <label for="task-add-desc">content</label>
-                            <textarea class="form-control" id="task-add-desc" rows="3" v-model="addTaskData.content"></textarea>
-                        </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add New Task</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="addtask-footer px-5 py-2">
-                        <button type="submit" class="btn btn-warning font-weight-bold">Save changes</button>
-                    </div>
-                </form>
+                    <form @submit.prevent="addTaskForm">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="task-add-title">Title</label>
+                                <input type="text" class="form-control" id="task-add-title" v-model="addTaskData.title">
+                            </div>
+                            <div class="form-group">
+                                <label for="task-add-desc">content</label>
+                                <textarea class="form-control" id="task-add-desc" rows="3" v-model="addTaskData.content"></textarea>
+                            </div>
+                        </div>
+                        <div class="addtask-footer px-5 py-2">
+                            <button type="submit" class="btn btn-warning font-weight-bold">Save changes</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -151,6 +157,8 @@
 
 <script>
 import axios from '../api/axios'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
     name: 'MyTasks',
@@ -196,6 +204,10 @@ export default {
         }
     },
     methods: {
+        showNavbar() {
+            document.getElementById('content').classList.toggle('content-change');
+            document.getElementById('sidebar').classList.toggle('sidebar-change');
+        },
         showAddModal(category) {
             this.addTaskData.category = category
             $('#addTaskModal').modal('show')

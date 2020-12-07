@@ -1,14 +1,14 @@
 <template>
     <div class="container login-page">
         <div class="row align-items-center justify-content-between">
-          <div class="col-6">
+          <div class="col-lg-6 about-component">
             <div class="feature-ele text-center">
                 <img src="img/complete_task.svg" alt="">
                 <h2>KanbanApp</h2>
                 <p>To help manage your tasks and your group task everyday . .</p>
             </div>
           </div>
-          <div class="col-6 card my-5">
+          <div class="col-lg-6 card my-5">
             <div class="card-body">
               <form @submit.prevent="loginForm">
                 <h1>Sign In</h1>

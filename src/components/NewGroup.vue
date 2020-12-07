@@ -1,6 +1,9 @@
 <template>
     <div id="content">
         <div class="row">
+            <div class="col-12 content-header">
+                <b-button v-b-toggle.sidebar-1 class="mb-3 mx-3"><i class="fa fa-bars"></i></b-button><h1>Group</h1>
+            </div>
             <div class="col-6">
                 <form @submit.prevent="addGroupForm">
                     <h1>New Group</h1>

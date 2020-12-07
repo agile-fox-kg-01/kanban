@@ -1,7 +1,7 @@
 <template>
     <div class="container register-page">
         <div class="row align-items-center justify-content-between">
-            <div class="col-6 card my-5">
+            <div class="col-lg-6 card my-5">
                 <div class="card-body">
                     <form @submit.prevent="registerForm">
                         <h1>Create your Account</h1>
@@ -29,7 +29,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-lg-6 about-component">
                 <div class="feature-ele text-center">
                     <img src="img/scrum.svg" alt="">
                     <h2>Manage Group Project</h2>

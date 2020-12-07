@@ -8,6 +8,16 @@
       v-on:toNewGroup="toNewGroup"
       :groups="groups"
     ></SidebarNav>
+    <b-sidebar id="sidebar-1" title="Kanban" shadow>
+      <SidebarNavToggle
+        v-on:toLoginForm="toLoginForm"
+        v-on:toError="toError"
+        v-on:toContentGroupTask="toContentGroupTask"
+        v-on:toContentMyTask="toContentMyTask"
+        v-on:toNewGroup="toNewGroup"
+        :groups="groups"
+      ></SidebarNavToggle>
+    </b-sidebar>
     <ContentMyTask
       v-if="contentPage == 'myTask'"
       :tasks="myTasks"
@@ -38,6 +48,7 @@
 <script>
 import axios from "../api/axios";
 import SidebarNav from "../components/SidebarNav";
+import SidebarNavToggle from "../components/SidebarNavToggle";
 import ContentMyTask from "../components/ContentMyTask";
 import ContentGroupTask from "../components/ContentGroupTask";
 import NewGroup from "../components/NewGroup";
@@ -130,7 +141,8 @@ export default {
     SidebarNav,
     ContentMyTask,
     ContentGroupTask,
-    NewGroup
+    NewGroup,
+    SidebarNavToggle
   }
 };
 </script>
